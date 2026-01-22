@@ -1,4 +1,4 @@
-# gage-johnson-portfolio-website
+# Personal Portfolio Website
 
 A clean, responsive, and accessible multi-page personal portfolio website built with **semantic HTML and modern CSS**. This project showcases professional experience across **development, cloud engineering, and consulting**, while demonstrating best practices in front-end structure, accessibility, and maintainable styling.
 
