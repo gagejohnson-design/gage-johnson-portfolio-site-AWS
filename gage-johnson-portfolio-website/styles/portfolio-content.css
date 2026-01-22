@@ -1,0 +1,28 @@
+/* Portfolio Page Content Styling & Media */
+
+.portfolio {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.portfolio-header {
+  margin-bottom: 2rem;
+}
+
+.portfolio-section {
+  margin-bottom: 2rem;
+}
+
+.portfolio-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+
+@media (max-width: 40rem) {
+  .portfolio {
+    padding: 1.5rem 1rem;
+  }
+}

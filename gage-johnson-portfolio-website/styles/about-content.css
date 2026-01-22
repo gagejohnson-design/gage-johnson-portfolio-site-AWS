@@ -1,0 +1,28 @@
+/* About Page Content Styling & Media */
+
+.about {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.about-header {
+  margin-bottom: 2rem;
+}
+
+.about-section {
+  margin-bottom: 2rem;
+}
+
+.about-section img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem 0;
+}
+
+@media (max-width: 40rem) {
+  .about {
+    padding: 1.5rem 1rem;
+  }
+}

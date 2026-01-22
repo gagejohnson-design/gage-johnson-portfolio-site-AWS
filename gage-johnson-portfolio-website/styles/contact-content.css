@@ -1,0 +1,23 @@
+/* Contact Page Content Styling & Media */
+
+.form-layout {
+  max-width: 60rem;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.form-img {
+  width: 10rem;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.form-button {
+  margin-top: 1rem;
+}
+
+@media (max-width: 40rem) {
+  .form-img {
+    width: 7rem;
+  }
+}

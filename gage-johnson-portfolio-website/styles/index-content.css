@@ -1,0 +1,32 @@
+/* Home Page Content Styling & Media */
+
+.home-content {
+  max-width: 60rem;
+  margin: 0;
+  padding: 2rem 1rem;
+}
+
+.home-header {
+  margin-bottom: 2rem;
+}
+
+.home-img {
+  width: 12rem;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.home-section {
+  margin-bottom: 2rem;
+}
+
+.home-quote {
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+@media (max-width: 40rem) {
+  .home-img {
+    width: 8rem;
+  }
+}
