@@ -3,95 +3,168 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>About |Gage Johnson</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/about-content.css" />
   </head>
+  <script src="scripts/theme.js"></script>
   <body>
     <header>
       <nav class="nav-bar">
-        <p class="nav-name">Gage Johnson</p>
-        <ul>
-          <li class="nav"><a href="index.html">Home</a></li>
-          <li class="nav"><a href="about.html">About</a></li>
-          <li class="nav"><a href="portfolio.html">Portfolio</a></li>
-          <li class="nav"><a href="contact.html">Contact</a></li>
+        <div class="nav-left">
+          <p class="nav-name">Gage Johnson</p>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
+
+        <div class="nav-right">
+          <button
+            class="toggle-theme"
+            onclick="toggleTheme()"
+            aria-label="Toggle dark mode"
+          >
+            <span id="theme-icon" aria-hidden="true">☀️</span>
+          </button>
+        </div>
       </nav>
     </header>
-    <main class="about">
+    <main class="about container-narrow">
       <header class="about-header">
-        <h1>About Me!</h1>
+        <h1>About</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          I bring a full-lifecycle perspective to enterprise technology: how
+          software is sold, implemented, adopted, and trusted through reliable
+          data and clear delivery. I’m a Data Management Consultant by trade,
+          and I’m actively building full-stack and AWS fundamentals to deepen my
+          technical execution.
         </p>
       </header>
-      <section class="about-section">
-        <h2>Fullstack Academy</h2>
-        <img src="img/dev.png" alt="Developer Image" />
-        <p>
-          At Fullstack Academy, I’ve developed a strong foundation in modern web
-          development through hands-on, project-based learning centered on
-          building responsive, user-focused applications. My work has included
-          designing clean, accessible interfaces using HTML, CSS, and
-          JavaScript, as well as applying version control best practices with
-          Git and GitHub to manage collaborative workflows. These projects have
-          emphasized writing maintainable code, breaking down complex problems,
-          and iterating quickly based on feedback.
-        </p>
-        <p>
-          In addition to frontend development, I’ve gained experience connecting
-          client-side applications to backend services and APIs, strengthening
-          my understanding of how data flows through full-stack systems. By
-          building and deploying multi-page and single-page applications, I’ve
-          learned how to structure projects for scalability, performance, and
-          long-term maintainability, simulating real-world development
-          environments and professional engineering standards.
-        </p>
-      </section>
-      <section class="about-section">
-        <h2>AWS</h2>
-        <img src="img/Cloud.png" alt="Cloud Image" />
-        <p>
-          Through my AWS studies, I’ve focused on designing and deploying
-          secure, cloud-based architectures using core services such as S3,
-          CloudFront, EC2, IAM, and VPC. I’ve practiced building environments
-          that prioritize availability, performance, and security, while gaining
-          hands-on experience with identity management, permissions, and network
-          segmentation to protect and control access across systems.
-        </p>
-        <p>
-          I’ve also worked on automating deployment and infrastructure workflows
-          using GitHub Actions and configuration-driven approaches, reinforcing
-          best practices around CI/CD and infrastructure as code concepts. This
-          experience has helped me understand how to balance cost optimization,
-          monitoring, and scalability while building cloud solutions that can
-          support production-level applications.
-        </p>
-      </section>
-      <section class="about-section">
-        <h2>Consulting</h2>
+
+      <section class="about-section card">
+        <h2>My Path</h2>
         <img src="img/consulting.png" alt="Consulting Image" />
         <p>
-          In my professional role, I’ve worked as a data and systems consultant
-          supporting enterprise SaaS implementations and large-scale data
-          migration projects across multiple business units. I collaborate
-          closely with business stakeholders to translate complex operational
-          requirements into structured technical designs, building ETL-driven
-          workflows and integration strategies that improve data quality,
-          reliability, and system interoperability.
+          I started in SaaS sales, where I learned how organizations evaluate
+          solutions and what it takes to communicate value across business and
+          technical audiences. From there, I moved into functional consulting
+          and delivery, working closer to requirements, process alignment,
+          testing cycles, and user enablement.
         </p>
         <p>
-          Alongside technical delivery, I’ve played a key role in documentation,
-          validation, and cross-team communication to ensure solutions are
-          aligned with both business goals and technical constraints. This work
-          has strengthened my ability to bridge the gap between engineering
-          teams and non-technical partners, while delivering scalable,
-          well-governed systems that support long-term organizational growth.
+          Today, I work in data management consulting—supporting enterprise
+          implementations across multiple business units. I spend a lot of time
+          improving data quality, validating migrations through QA cycles, and
+          collaborating with developers, architects, and stakeholders to
+          troubleshoot issues and keep delivery moving.
+        </p>
+      </section>
+
+      <section class="about-section card">
+        <h2>What I Do in My Role</h2>
+        <img src="img/consulting.png" alt="Systems Delivery Image" />
+        <p>
+          My work is a mix of systems coordination and hands-on validation. I
+          help translate business needs into clear documentation and actionable
+          delivery steps, then support testing and readiness so teams can
+          operate confidently after go-live.
+        </p>
+        <p>
+          I’ve contributed to stronger go-live outcomes by improving data
+          quality and migration accuracy through validation and QA cycles, and
+          I’ve built automation to structure large volumes of unorganized
+          documentation—saving teams significant time and making deliverables
+          easier to use.
+        </p>
+      </section>
+
+      <section class="about-section card">
+        <h2>What I’m Learning and Practicing</h2>
+        <img src="img/dev.png" alt="Developer Image" />
+        <p>
+          I’m building engineering fundamentals through bootcamp projects, side
+          work, and consistent practice. My focus is on understanding
+          application structure, working with APIs and databases, and improving
+          my ability to build maintainable features end-to-end.
+        </p>
+        <p>
+          On the cloud side, I’m progressing through Adriaan Cantrill’s AWS
+          Solutions Architect course and self-study, with hands-on labs to
+          strengthen how cloud environments are configured, secured, and
+          operated.
+        </p>
+      </section>
+
+      <section class="about-section card">
+        <h2>How I Work</h2>
+        <img src="img/Cloud.png" alt="Cloud Image" />
+        <p>
+          I work top-down—aligning on business goals, user needs, and success
+          criteria before execution. With a foundation in SaaS sales and
+          functional consulting, I focus on bridging technical and non-technical
+          teams, clarifying requirements early, and translating ambiguity into
+          clear, actionable solutions.
+        </p>
+        <p>
+          As I continue building my skills in full-stack development and cloud,
+          I apply the same mindset: move iteratively, validate assumptions, and
+          prioritize quality and scalability. I approach problems from the
+          end-user perspective, test functionality first, and use modern tools
+          to troubleshoot efficiently—always focused on delivering solutions
+          people actually adopt and organizations can grow with.
+        </p>
+      </section>
+
+      <section class="about-section card">
+        <h2>A Little More Human</h2>
+        <img src="img/consulting.png" alt="Personal Interests Image" />
+        <p>
+          Outside of work, I’m big on travel, food, and finding new coffee
+          spots—my dream “job” would look a lot like Guy Fieri’s: exploring
+          places, meeting people, and trying great food. I also enjoy the gym
+          and fitness, side projects, science and history, and spending time
+          with my girlfriend and family.
+        </p>
+      </section>
+
+      <section class="about-section card">
+        <h2>Let’s Connect</h2>
+        <p>
+          If you want to see what I’m building, check out my
+          <a href="portfolio.html"><strong>portfolio</strong></a
+          >. If you’d like to reach out to me head to my
+          <a href="contact.html"><strong>contact</strong></a> page.
         </p>
       </section>
     </main>
-    <footer class="footer">© 2026 Gage Johnson</footer>
+    <footer class="footer">
+      <div class="footer-links">
+        <span>© 2026 Gage Johnson</span>
+        <a href="https://www.linkedin.com/in/gagejohnson117/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/gagejohnson-design" target="_blank"
+          >GitHub</a
+        >
+        <a href="assets/Gage-Johnson-Resume.pdf" download>Resume (PDF)</a>
+      </div>
+      <div class="powered-by-aws">
+        <a
+          href="https://aws.amazon.com/what-is-cloud-computing"
+          target="_blank"
+        >
+          <img
+            id="aws-logo"
+            src="https://d0.awsstatic.com/logos/powered-by-aws.png"
+            alt="Powered by AWS Cloud Computing"
+          />
+        </a>
+      </div>
+    </footer>
   </body>
 </html>

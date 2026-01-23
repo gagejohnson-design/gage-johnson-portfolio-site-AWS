@@ -3,38 +3,140 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Contact | Gage Johnson</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/contact-content.css" />
   </head>
+  <script src="scripts/theme.js"></script>
   <body>
     <header>
       <nav class="nav-bar">
-        <p class="nav-name">Gage Johnson</p>
-        <ul>
-          <li class="nav"><a href="index.html">Home</a></li>
-          <li class="nav"><a href="about.html">About</a></li>
-          <li class="nav"><a href="portfolio.html">Portfolio</a></li>
-          <li class="nav"><a href="contact.html">Contact</a></li>
+        <div class="nav-left">
+          <p class="nav-name">Gage Johnson</p>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
+
+        <div class="nav-right">
+          <button
+            class="toggle-theme"
+            onclick="toggleTheme()"
+            aria-label="Toggle dark mode"
+          >
+            <span id="theme-icon" aria-hidden="true">☀️</span>
+          </button>
+        </div>
       </nav>
     </header>
-    <main class="form-layout">
-      <h1>Contact Me!</h1>
-      <p>Feel free to leave a message through the form below!</p>
-      <img
-        class="form-img"
-        src="img/gage.jpg"
-        alt="A Portrait of Gage Johnson."
-      />
+    <main class="form-layout container-narrow">
+      <h1>Let’s Connect</h1>
+      <p>
+        Whether you’re interested in collaboration, opportunities, or just
+        starting a conversation, I’m always open to connecting. I enjoy working
+        at the intersection of business and technology and would love to hear
+        what you’re building.
+      </p>
+
+      <img class="form-img" src="img/gage.png" alt="Portrait of Gage Johnson" />
+
+      <section class="contact-links">
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/gagejohnson117/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >🔗 LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/gagejohnson-design"
+              target="_blank"
+              rel="noopener noreferrer"
+              >💻 GitHub</a
+            >
+          </li>
+          <li>
+            <a href="assets/Gage-Johnson-Resume.pdf" download
+              >📄 Resume (PDF)</a
+            >
+          </li>
+        </ul>
+      </section>
+
       <form>
-        <label>Name <input type="text" name="Name" /></label>
-        <label>Phone <input type="tel" phone="Phone" /></label>
-        <label>Email <input type="email" email="Email" /></label>
-        <label>Message <input type="text" Message="Message" /></label>
-        <button class="form-button">Send</button>
+        <label for="name">
+          Name
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your full name"
+            required
+          />
+        </label>
+
+        <label for="phone">
+          Phone
+          <input type="tel" id="phone" name="phone" placeholder="Optional" />
+        </label>
+
+        <label for="email">
+          Email
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+          />
+        </label>
+
+        <label for="message">
+          Message
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Tell me a bit about what you’re looking to discuss..."
+            required
+          ></textarea>
+        </label>
+
+        <button class="form-button" type="submit">Send Message</button>
       </form>
     </main>
-    <footer class="footer">© 2026 Gage Johnson</footer>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <span>© 2026 Gage Johnson</span>
+        <a href="https://www.linkedin.com/in/gagejohnson117/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/gagejohnson-design" target="_blank"
+          >GitHub</a
+        >
+        <a href="assets/Gage-Johnson-Resume.pdf" download>Resume (PDF)</a>
+      </div>
+      <div class="powered-by-aws">
+        <a
+          href="https://aws.amazon.com/what-is-cloud-computing"
+          target="_blank"
+        >
+          <img
+            id="aws-logo"
+            src="https://d0.awsstatic.com/logos/powered-by-aws.png"
+            alt="Powered by AWS Cloud Computing"
+          />
+        </a>
+      </div>
+    </footer>
   </body>
 </html>

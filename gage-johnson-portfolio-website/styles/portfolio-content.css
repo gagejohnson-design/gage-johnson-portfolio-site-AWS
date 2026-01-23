@@ -1,28 +1,28 @@
-/* Portfolio Page Content Styling & Media */
-
-.portfolio {
-  max-width: 60rem;
+.project-page {
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem;
 }
 
-.portfolio-header {
-  margin-bottom: 2rem;
+.project-summary {
+  font-style: italic;
+  color: var(--text-muted);
+  margin: 0.75rem 0 1.25rem;
+  line-height: 1.7;
 }
 
-.portfolio-section {
-  margin-bottom: 2rem;
+.project-page .card {
+  height: 100%;
 }
 
-.portfolio-section img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem 0;
-}
+@media (min-width: 900px) {
+  .project-page {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
 
-@media (max-width: 40rem) {
-  .portfolio {
-    padding: 1.5rem 1rem;
+  .project-page .page-title {
+    grid-column: 1 / -1;
   }
 }

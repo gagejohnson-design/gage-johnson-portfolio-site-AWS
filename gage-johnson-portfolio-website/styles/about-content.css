@@ -1,28 +1,52 @@
-/* About Page Content Styling & Media */
-
-.about {
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
 .about-header {
-  margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: var(--space-6);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.about-section {
-  margin-bottom: 2rem;
+.about-header h1 {
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  margin: 0 0 var(--space-2) 0;
+  color: var(--text);
+  letter-spacing: -0.02em;
 }
 
-.about-section img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 1rem 0;
+.about-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 36rem;
+  margin: 0 auto;
 }
 
-@media (max-width: 40rem) {
-  .about {
-    padding: 1.5rem 1rem;
+.about-section + .about-section {
+  margin-top: var(--space-6);
+}
+
+.about-section h2 {
+  color: var(--text);
+  margin: 0 0 var(--space-2) 0;
+  letter-spacing: -0.01em;
+}
+
+.about-section p {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--text-subtle);
+  line-height: 1.75;
+}
+.about-section.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile polish */
+@media (max-width: 640px) {
+  .about-header {
+    margin-bottom: var(--space-5);
+  }
+
+  .about-section h2 {
+    font-size: 1.15rem;
   }
 }
