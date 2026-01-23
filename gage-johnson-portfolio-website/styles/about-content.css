@@ -25,6 +25,28 @@
   margin-top: var(--space-6);
 }
 
+.about-img {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  margin: 1.25rem auto 1.75rem auto;
+  border-radius: 12px;
+  opacity: 0.96;
+}
+
+.about-img2 {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  margin: 1.25rem auto 1.75rem auto;
+  border-radius: 12px;
+  opacity: 0.96;
+}
+
 .about-section h2 {
   color: var(--text);
   margin: 0 0 var(--space-2) 0;
@@ -36,11 +58,11 @@
   color: var(--text-subtle);
   line-height: 1.75;
 }
+
 .about-section.card p:last-child {
   margin-bottom: 0;
 }
 
-/* Mobile polish */
 @media (max-width: 640px) {
   .about-header {
     margin-bottom: var(--space-5);
