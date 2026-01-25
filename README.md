@@ -64,26 +64,6 @@ A clean, responsive multi-page portfolio site built with semantic HTML and moder
 
 ---
 
-## Run Locally
-
-This is a static site. No backend or build tools are required.
-
-### Option A — VS Code Live Server
-
-1. Open the repo in VS Code
-2. Install the Live Server extension
-3. Right-click `index.html` → Open with Live Server
-
-### Option B — Python HTTP Server
-
-```bash
-python3 -m http.server 5173
-```
-
-Then open `http://localhost:5173` in your browser.
-
----
-
 ## Deployment Architecture
 
 ```
