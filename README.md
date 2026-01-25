@@ -162,4 +162,3 @@ Set these in **Repository → Settings → Secrets and variables → Actions**
 ## Author
 
 **Gage Johnson**  
-Consultant | Developer | Cloud Engineer in Training
