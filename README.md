@@ -1,130 +1,179 @@
-# Personal Portfolio Website
+# Personal Portfolio Website (AWS + GitHub Actions)
 
-A clean, responsive, and accessible multi-page personal portfolio website built with **semantic HTML and modern CSS**. This project showcases professional experience across **development, cloud engineering, and consulting**, while demonstrating best practices in front-end structure, accessibility, and maintainable styling.
+A clean, responsive multi-page portfolio site built with semantic HTML and modern CSS, deployed to AWS as a static website. Updates are shipped automatically using GitHub Actions and AWS OIDC-based authentication.
 
----
-
-## 📁 Project Overview
-
-This portfolio is designed as a **multi-page static website** that highlights:
-
-- Professional background and career narrative
-- Technical skills and cloud/dev experience
-- Portfolio project sections
-- A clean, accessible contact form
+> **Project goal:** Showcase front-end fundamentals alongside real-world cloud deployment using S3, CloudFront, and a custom domain.
 
 ---
 
-## 🧱 Pages & Structure
+## Overview
 
-### Pages
-
-| Page      | File             | Purpose                                                              |
-| --------- | ---------------- | -------------------------------------------------------------------- |
-| Home      | `index.html`     | Landing page with hero section, intro content, and personal branding |
-| About     | `about.html`     | Professional background across development, cloud, and consulting    |
-| Portfolio | `portfolio.html` | Featured work, projects, and technical focus areas                   |
-| Contact   | `contact.html`   | Accessible contact form for inquiries                                |
+- Multi-page layout (Home, About, Portfolio, Contact)  
+- Semantic, accessible HTML (`header`, `nav`, `main`, `section`, `footer`)  
+- Mobile-first responsive CSS (Flexbox + Grid)  
+- AWS static hosting (S3 origin + CloudFront CDN)  
+- CI/CD with GitHub Actions (OIDC → IAM Role → S3 Sync → CloudFront Invalidation)
 
 ---
 
-## 🗂️ Folder Structure
+<details>
+<summary><strong>Pages</strong></summary>
 
-```
-portfolio-website/
+| Page       | File              | Purpose |
+|------------|-------------------|----------|
+| Home       | `index.html`     | Landing page, hero section, personal branding |
+| About      | `about.html`    | Background in consulting, cloud, and development |
+| Portfolio  | `portfolio.html` | Featured work and project focus areas |
+| Contact    | `contact.html`  | Accessible contact form |
+
+</details>
+
+---
+
+<details>
+<summary><strong>Project Structure</strong></summary>
+
+```text
+.
+├── .github/
+│   └── workflows/               # CI/CD deployment workflows
+├── health/                      # Optional health/verification assets
+├── src/                         # Supporting site assets/content (if used)
 ├── index.html
 ├── about.html
 ├── portfolio.html
 ├── contact.html
 ├── styles/
-│   ├── main.css
-│   ├── index-content.css
+│   ├── main.css                 # Global styles shared across pages
+│   ├── index-content.css       # Page-specific styling
 │   ├── about-content.css
 │   ├── portfolio-content.css
 │   └── contact-content.css
-├── img/
-│   ├── gage.jpg
-│   ├── dev.png
-│   ├── cloud.png
-│   └── consulting.png
+├── build.sh                    # Optional build helper
 └── README.md
-```
+<details>
+<details>
+<summary><strong>Tech Stack</strong></summary>
+
+- **HTML5** — semantic structure and accessibility best practices  
+- **CSS3** — responsive layouts with Flexbox and Grid  
+- **GitHub Actions** — automated CI/CD pipeline  
+- **AWS**
+  - **S3** — static site hosting  
+  - **CloudFront** — CDN and HTTPS  
+  - **Route 53** — DNS  
+  - **ACM** — TLS certificates (for custom domain)  
+
+</details>
 
 ---
 
-### Semantic HTML
+<details>
+<summary><strong>Run Locally</strong></summary>
 
-- Uses `<header>`, `<nav>`, `<main>`, `<section>`, and `<footer>` correctly
-- Clean heading hierarchy (`h1` → `h2`)
-- Proper form labeling for accessibility
+This is a static site. No backend or build tools are required.
 
-### Responsive Design
+### Option A — VS Code Live Server
+1. Open the repo in VS Code  
+2. Install the **Live Server** extension  
+3. Right-click `index.html` → **Open with Live Server**
 
-- Mobile-first layout
-- Flexbox and CSS Grid for scalable sections
-- Image and text stacking on smaller screens
+### Option B — Python HTTP Server
+```bash
+python3 -m http.server 5173
 
-### Accessibility
+Then open http://localhost:5173 in your browser.
 
-- Meaningful `alt` text for all images
-- Proper `<label>` and `<input>` relationships
-- Logical document structure for screen readers
-- Keyboard-friendly navigation
+</details>
 
-### Maintainable CSS
+<details> <summary><strong>Deployment Architecture</strong></summary>
+Browser
+  ↓
+CloudFront (CDN + HTTPS)
+  ↓
+S3 Bucket (Static Website Origin)
 
-- Shared global styles in `main.css`
-- Page-specific styling split into modular CSS files
-- Minimal class usage with contextual selectors
+</details>
+<details> <summary><strong>One-Time AWS Setup</strong></summary>
+1. Create an S3 Bucket
 
----
+Store all static site files
 
-## 🛠️ Technologies Used
+Keep the bucket private if using CloudFront with Origin Access Control (recommended)
 
-- **HTML5** — Semantic structure and accessibility
-- **CSS3** — Flexbox, Grid, responsive design
-- **Git & GitHub** — Version control and project tracking
+Public access is handled by CloudFront, not directly by S3
 
----
+2. Create a CloudFront Distribution
 
-## 📄 Page Breakdown
+Origin: S3 bucket
 
-### Home Page
+Default root object: index.html
 
-- Hero section with name and professional tagline
-- Personal introduction sections
-- Styled quote/testimonial block
+Enable HTTPS
 
-### About Page
+Optional: custom error responses for SPA-style routing
 
-- Development experience (Fullstack Academy)
-- Cloud engineering focus (AWS)
-- Professional consulting background
+3. Custom Domain (Optional)
 
-### Portfolio Page
+Request an ACM certificate in us-east-1
 
-- Featured technical areas and project sections
-- Expandable "Learn More" links for case studies or repositories
+Add domain(s) as Alternate Domain Names (CNAMEs) in CloudFront
 
-### Contact Page
+In Route 53, create an A/AAAA alias record pointing to the CloudFront distribution
 
-- Accessible form with:
-  - Name
-  - Phone
-  - Email
-  - Message
+4. GitHub Actions Authentication (OIDC)
 
----
+Create an IAM role with a trust policy for GitHub’s OIDC provider
 
-## 👤 Author
+Grant least-privilege permissions:
 
-**Gage Johnson**
-Consultant | Developer | Cloud
+s3:ListBucket
 
----
+s3:PutObject
 
-## ⭐ Acknowledgments
+s3:DeleteObject
 
-- Fullstack Academy
+cloudfront:CreateInvalidation
 
----
+</details>
+<details> <summary><strong>CI/CD Pipeline</strong></summary>
+
+On push (typically to a production branch), GitHub Actions will:
+
+Check out the repository
+
+Authenticate to AWS using OIDC
+
+Sync site files to S3 using aws s3 sync
+
+Invalidate CloudFront cache so updates go live globally
+
+</details>
+<details> <summary><strong>Required GitHub Secrets</strong></summary>
+
+Set these in Repository → Settings → Secrets and variables → Actions
+
+AWS_ROLE_ARN — IAM role assumed by GitHub Actions
+
+AWS_REGION — AWS region (example: us-east-1)
+
+S3_BUCKET — Target S3 bucket name
+
+CLOUDFRONT_DISTRIBUTION_ID — CloudFront distribution ID
+
+</details>
+<details> <summary><strong>Accessibility & Maintainability</strong></summary>
+
+Shared global styling is centralized in styles/main.css
+
+Page-specific styles are modularized for clean separation of concerns
+
+Forms use labeled inputs and keyboard-friendly navigation
+
+Semantic HTML improves SEO and screen reader compatibility
+
+</details>
+Author
+
+Gage Johnson
+Consultant | Developer | Cloud Engineer in Training
