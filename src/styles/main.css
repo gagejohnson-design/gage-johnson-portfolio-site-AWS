@@ -98,7 +98,7 @@ p {
   background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  position: sticky;
+  position: static;
   top: 0;
   z-index: 1000;
   gap: var(--space-3);
